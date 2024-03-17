@@ -1,0 +1,17 @@
+[
+  {
+    "year": "2022 - Present",
+    "role": "Software Developer",
+    "company": "PortDev",
+    "description": "Orchestrated the frontend vision for delivr.ai, sculpting immersive digital experiences. Seamlessly integrated content dynamics, ensuring user captivation. Crafted fluid navigation pathways for mobile and web platforms, fostering intuitive exploration. Streamlined collaboration and elevated project delivery through Git mastery.",
+    "techStack": ["React", "Tailwind", "Next.JS", "Git", "Typescript"],
+    "link": ""
+  },
+  {
+    "year": "MARCH - JUNE 2022",
+    "role": "Intern",
+    "company": "PortDev",
+    "description": "Thrived in a dynamic internship, immersing in HTML, CSS, JavaScript, React, and Node.js. Crafted interactive React components for real-time task management. Engineered backend solutions with Node.js, deploying seamlessly on Heroku. Ensured user accessibility via Netlify for the Todo app. Embraced AWS for secure task data management, fostering data integrity.",
+    "techStack": ["Javascript", "React Native", "React Router", "Redux"]
+  }
+]

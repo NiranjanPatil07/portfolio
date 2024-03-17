@@ -1,0 +1,30 @@
+[
+  {
+    "display": true,
+    "name": "Sountrack",
+    "description": "Soundtrack is a personal project built with React and Node.js (Express) that leverages the Spotify Web API to create a rich and user-friendly music listening experience. It's inspired by Spotify but aims to personalize your music journey with unique features and functionalities.",
+    "link": "https://soundtrack-listen.vercel.app/",
+    "image": "/soundtrack.png"
+  },
+  {
+    "display": true,
+    "name": "delivr.ai",
+    "description": "Led frontend development for a business management app, leveraging Material UI to craft intuitive dashboards. Successfully implemented features for account and contact resolution based on visits, optimizing user experience. Demonstrated commitment to excellence in web design and project execution.",
+    "link": "https://app.cdpresolution.com/",
+    "image": "/delivr.png"
+  },
+  {
+    "display": true,
+    "name": "PortQii Connect",
+    "description": "Designed and developed multiple products within PorQii Connect, a versatile platform aiding users of marketing platforms like Eloqua, Marketo, and HubSpot. Innovatively addressed asset renaming, version control, and dependency management, enhancing workflow efficiency. Committed to delivering seamless solutions for streamlined marketing operations.",
+    "link": "https://apps.portqii.com/edi-hubspot/ux/",
+    "image": "/portqii.png"
+  },
+  {
+    "display": false,
+    "name": "octate.ai",
+    "description": "octate.ai revolutionizes B2B applications by offering streamlined access to essential information. Empowering users to efficiently view blurbs, products, and use-cases, octate.ai enhances decision-making and productivity. Simplifying complex data, we redefine the user experience for unparalleled efficiency and insight in B2B environments.",
+    "link": "https://octate.ai/",
+    "image": "/octate.png"
+  }
+]

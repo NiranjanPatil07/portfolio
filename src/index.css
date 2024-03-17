@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Vercetti;
+    src: url(/src//assets/font/Vercetti-Regular.ttf);
+  }
+  * {
+    @apply font-poppins;
+  }
+  body {
+    @apply bg-zinc-950 text-slate-300;
+  }
+  .nav-indicator {
+    @apply w-16 opacity-100 text-slate-200;
+  }
+  .nav-text {
+    @apply opacity-100 text-slate-200;
+  }
+  .active .nav-indicator {
+    @apply w-16 opacity-100 bg-slate-200;
+  }
+  .active .nav-text {
+    @apply opacity-100 text-slate-200;
+  }
+  .wrapper-container {
+    @apply px-3 pb-16 pt-4 md:px-6;
+  }
+}
