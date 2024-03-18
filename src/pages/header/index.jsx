@@ -1,6 +1,7 @@
 import { Github, Home, Instagram, Linkedin, Twitter } from "lucide-react";
-import React, { Fragment, useEffect, useState } from "react";
-
+import React, { Fragment, useEffect, useRef, useState } from "react";
+import { TypewriterEffectSmooth } from "../../components/typewriter-effect";
+import { motion, useInView } from "framer-motion";
 // const NAV_ITEMS = ["about", "experience", "projects"];
 const SOCIAL_ITEMS = [
   { to: "https://github.com/NiranjanPatil07", icon: <Github />, label: "Home" },
@@ -9,29 +10,26 @@ const SOCIAL_ITEMS = [
   { to: "https://www.linkedin.com/in/heyniranjanpatil/", icon: <Instagram />, label: "Playlist" },
 ];
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: 1,
+      staggerChildren: 0.2,
+    },
+  },
+};
+const item = {
+  hidden: { opacity: 0, x: -30 },
+  show: { opacity: 1, x: 0 },
+};
+
 const Header = ({ section }) => {
-  const [activeLink, setActiveLink] = useState(0);
-  //   useEffect(() => {
-  //     const handleScroll = () => {
-  //       const sections = document.querySelectorAll("section");
-  //       sections.forEach((section, index) => {
-  //         const top = section.offsetTop; // Adjust this value as needed
-  //         const bottom = top + section.clientHeight;
-  //         const scrollPosition = window.scrollY;
-  //         console.log(top, bottom, scrollPosition);
-  //         if (scrollPosition >= top && scrollPosition < bottom) {
-  //           setActiveLink(index);
-  //         }
-  //       });
-  //     };
+  const [activeLink, setActiveLink] = useState("about");
+  const navigationRef = useRef(null);
+  const isInView = useInView(navigationRef, { once: true });
 
-  //     window.addEventListener("scroll", handleScroll);
-
-  //     // Cleanup event listener on component unmount
-  //     return () => {
-  //       window.removeEventListener("scroll", handleScroll);
-  //     };
-  //   }, []);
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -56,42 +54,86 @@ const Header = ({ section }) => {
       SELECTED_SECTION.ref.current.scrollIntoView({ behavior: "smooth", block: "center", inline: "start" });
     }
   };
+
+  const words = [
+    {
+      text: "Niranjan",
+      className: "text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl",
+    },
+    {
+      text: "Patil",
+      className: "text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl",
+    },
+  ];
   return (
     <header className='lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 select-none'>
       <div>
-        <h1 class='text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl'>Niranjan Patil</h1>
-        <h2 class='mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl'>Frontend Developer</h2>
-        <p class='mt-4 max-w-xs leading-normal text-slate-400'>An experienced web developer skilled in React JS and React Native</p>
-        <nav class='nav hidden lg:block' aria-label='In-page jump links'>
-          <ul class='mt-16 w-max'>
+        {/* <h1 className='text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl'>Niranjan Patil</h1> */}
+        <TypewriterEffectSmooth words={words} />
+        <motion.h2
+          className='mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl'
+          initial={{
+            opacity: 0,
+            y: 10,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            delay: 1,
+            duration: 0.5,
+          }}
+        >
+          Frontend Developer
+        </motion.h2>
+        <motion.p
+          className='mt-4 max-w-xs leading-normal text-slate-400'
+          initial={{
+            opacity: 0,
+            y: 10,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            delay: 1,
+            duration: 0.5,
+          }}
+        >
+          An experienced web developer skilled in React JS and React Native
+        </motion.p>
+        <nav className='nav hidden lg:block' aria-label='In-page jump links'>
+          <motion.ul className='mt-16 w-max' variants={container} initial='hidden' animate={"show"}>
             {section?.map(({ id, label }) => (
-              <li key={id}>
+              <motion.li variants={item} key={id}>
                 <p
                   onClick={() => scrollToSection(id)}
-                  class={`group flex items-center py-3 ${activeLink === id ? "active" : ""}`}
+                  className={`group flex items-center py-3 ${activeLink === id ? "active" : ""}`}
                   key={id}
                   href={`#${id}`}
                 >
-                  <span class='nav-indicator mr-4 h-px w-8 bg-slate-500 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none'></span>
-                  <span class='nav-text text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-slate-200 group-focus-visible:text-slate-200'>
+                  <span className='nav-indicator mr-4 h-px w-8 bg-slate-500 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none'></span>
+                  <span className='nav-text text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-slate-200 group-focus-visible:text-slate-200'>
                     {label}
                   </span>
                 </p>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
         </nav>
       </div>
-      <div className='flex space-x-6 mt-8'>
-        {SOCIAL_ITEMS?.map(({ icon }) => (
-          <Fragment key={icon}>
+      <motion.ul className='flex space-x-6 mt-8' variants={container} initial='hidden' animate={"show"}>
+        {SOCIAL_ITEMS?.map(({ to, icon }) => (
+          <motion.li key={icon} variants={item} onClick={() => window.open(to)}>
             {React.cloneElement(icon, {
               strokeWidth: 1.5,
               className: "text-slate-500 hover:text-teal-300 cursor-pointer",
             })}
-          </Fragment>
+          </motion.li>
         ))}
-      </div>
+      </motion.ul>
     </header>
   );
 };

@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: Vercetti;
-    src: url(/src//assets/font/Vercetti-Regular.ttf);
-  }
   * {
     @apply font-poppins;
   }
