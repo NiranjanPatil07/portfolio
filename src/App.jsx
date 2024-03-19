@@ -42,12 +42,12 @@ function App() {
           translateX: cursorXSpring,
           translateY: cursorYSpring,
         }}
-        className='fixed z-[99999] w-0 h-0 bg-teal-400'
+        className='fixed z-[99999] w-0 h-0 bg-sky-400'
       >
-        {!props.hideCursor == true ? (
+        {window.innerWidth > 768 ? (
           <motion.div
             layoutId='cursor'
-            className='absolute w-4 h-4 -top-2 -left-2 bg-teal-400 pointer-events-none rounded-full'
+            className='absolute w-3 h-3 -top-2 -left-2 bg-sky-400 pointer-events-none rounded-full'
           ></motion.div>
         ) : null}
       </motion.div>

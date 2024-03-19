@@ -1,13 +1,12 @@
-import { Github, Home, Instagram, Linkedin, Twitter } from "lucide-react";
-import React, { Fragment, useEffect, useRef, useState } from "react";
-import { TypewriterEffectSmooth } from "../../components/typewriter-effect";
 import { motion, useInView } from "framer-motion";
-// const NAV_ITEMS = ["about", "experience", "projects"];
+import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { useScramble } from "use-scramble";
 const SOCIAL_ITEMS = [
-  { to: "https://github.com/NiranjanPatil07", icon: <Github />, label: "Home" },
-  { to: "https://twitter.com/heyniranjanp", icon: <Twitter />, label: "Search" },
-  { to: "https://www.linkedin.com/in/heyniranjanpatil/", icon: <Linkedin />, label: "Playlist" },
-  { to: "https://www.linkedin.com/in/heyniranjanpatil/", icon: <Instagram />, label: "Playlist" },
+  { to: "https://github.com/NiranjanPatil07", icon: <Github />, label: "Github" },
+  { to: "https://twitter.com/heyniranjanp", icon: <Twitter />, label: "Twitter" },
+  { to: "https://www.linkedin.com/in/heyniranjanpatil/", icon: <Linkedin />, label: "LinkedIn" },
+  { to: "https://www.instagram.com/heyniranjanpatil", icon: <Instagram />, label: "Instagram" },
 ];
 
 const container = {
@@ -29,7 +28,14 @@ const Header = ({ section }) => {
   const [activeLink, setActiveLink] = useState("about");
   const navigationRef = useRef(null);
   const isInView = useInView(navigationRef, { once: true });
-
+  const { ref } = useScramble({
+    text: "Niranjan Patil",
+    speed: 0.6,
+    tick: 1,
+    step: 1,
+    scramble: 4,
+    seed: 0,
+  });
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -68,8 +74,10 @@ const Header = ({ section }) => {
   return (
     <header className='lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 select-none'>
       <div>
-        {/* <h1 className='text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl'>Niranjan Patil</h1> */}
-        <TypewriterEffectSmooth words={words} />
+        <h1 className='text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl' ref={ref}>
+          Niranjan Patil
+        </h1>
+        {/* <TypewriterEffectSmooth words={words} /> */}
         <motion.h2
           className='mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl'
           initial={{
@@ -111,7 +119,6 @@ const Header = ({ section }) => {
                 <p
                   onClick={() => scrollToSection(id)}
                   className={`group flex items-center py-3 ${activeLink === id ? "active" : ""}`}
-                  key={id}
                   href={`#${id}`}
                 >
                   <span className='nav-indicator mr-4 h-px w-8 bg-slate-500 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none'></span>
@@ -126,7 +133,7 @@ const Header = ({ section }) => {
       </div>
       <motion.ul className='flex space-x-6 mt-8' variants={container} initial='hidden' animate={"show"}>
         {SOCIAL_ITEMS?.map(({ to, icon }) => (
-          <motion.li key={icon} variants={item} onClick={() => window.open(to)}>
+          <motion.li key={to} variants={item} onClick={() => window.open(to)}>
             {React.cloneElement(icon, {
               strokeWidth: 1.5,
               className: "text-slate-500 hover:text-teal-300 cursor-pointer",
