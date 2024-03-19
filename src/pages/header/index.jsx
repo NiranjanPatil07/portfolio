@@ -41,7 +41,7 @@ const Header = ({ section }) => {
       const scrollPosition = window.scrollY;
       const sectionInView = section.find(({ ref }) => {
         const { offsetTop, offsetHeight } = ref.current;
-        return scrollPosition >= offsetTop - 100 && scrollPosition < offsetTop - 100 + offsetHeight;
+        return scrollPosition >= offsetTop - 150 && scrollPosition < offsetTop - 110 + offsetHeight;
       });
       if (sectionInView) {
         setActiveLink(sectionInView.id);
@@ -57,7 +57,7 @@ const Header = ({ section }) => {
   const scrollToSection = (id) => {
     const SELECTED_SECTION = section.find((section) => section.id === id);
     if (SELECTED_SECTION && SELECTED_SECTION.ref.current) {
-      SELECTED_SECTION.ref.current.scrollIntoView({ behavior: "smooth", block: "center", inline: "start" });
+      SELECTED_SECTION.ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
 

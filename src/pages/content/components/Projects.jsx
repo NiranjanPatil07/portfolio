@@ -21,7 +21,7 @@ const Projects = ({ section }) => {
   const projectsRef = useRef(null);
   const isInView = useInView(projectsRef, { once: true });
   return (
-    <section id='project' ref={section[2].ref} className='mt-24 pb-12 lg:pb-0'>
+    <section id='project' ref={section[2].ref} className='mt-32 pb-12 lg:pb-0 relative'>
       <div className='sticky lg:hidden top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur md:-mx-12 md:px-12 '>
         <h2 className='text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only'>Projects</h2>
       </div>

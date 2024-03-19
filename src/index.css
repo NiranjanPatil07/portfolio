@@ -25,3 +25,18 @@
     @apply px-3 pb-16 pt-4 md:px-6;
   }
 }
+
+::-webkit-scrollbar {
+  width: 5px !important;
+  height: 5px !important;
+}
+::-webkit-scrollbar-track {
+  background: rgba(var(--bg-zinc-950)) !important;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--bg-zinc-950), 0.5);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--bg-zinc-950), 1) !important;
+}

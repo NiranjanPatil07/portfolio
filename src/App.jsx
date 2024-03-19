@@ -1,10 +1,9 @@
-import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import React, { useRef } from "react";
 import "./App.css";
 import { BackgroundBeams } from "./components/background-beams";
 import Content from "./pages/content";
 import Header from "./pages/header";
-import React, { useRef } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
 function App() {
   const section = [
     { id: "about", label: "About", ref: useRef(null) },
@@ -13,13 +12,13 @@ function App() {
   ];
 
   const Cursor = (props) => {
-    const cursorX = useMotionValue(-100);
-    const cursorY = useMotionValue(-100);
+    const cursorX = useMotionValue(-20);
+    const cursorY = useMotionValue(-20);
 
     const springConfig = {
-      damping: 35,
-      stiffness: 700,
-      mass: 1,
+      damping: 30,
+      stiffness: 800,
+      mass: 0.1,
     };
     const cursorXSpring = useSpring(cursorX, springConfig);
     const cursorYSpring = useSpring(cursorY, springConfig);

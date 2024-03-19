@@ -25,7 +25,7 @@ const Experience = ({ section }) => {
     },
   };
   return (
-    <section id='experience' ref={section[1].ref} className='mt-24 relative'>
+    <section id='experience' ref={section[1].ref} className='mt-32 relative'>
       <div className='sticky lg:hidden top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur md:-mx-12 md:px-12 '>
         <h2 className='text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only'>Experience</h2>
       </div>
