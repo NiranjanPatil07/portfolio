@@ -4,6 +4,8 @@ import "./App.css";
 import { BackgroundBeams } from "./components/background-beams";
 import Content from "./pages/content";
 import Header from "./pages/header";
+import { Analytics } from "@vercel/analytics/react";
+
 function App() {
   const section = [
     { id: "about", label: "About", ref: useRef(null) },
@@ -62,6 +64,7 @@ function App() {
       </div>
       <BackgroundBeams className='fixed z-0' />
       <Cursor />
+      <Analytics />
     </div>
   );
 }
