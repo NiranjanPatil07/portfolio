@@ -36,21 +36,45 @@ const Header = ({ section }) => {
     scramble: 4,
     seed: 0,
   });
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const sectionInView = section.find(({ ref }) => {
-        const { offsetTop, offsetHeight } = ref.current;
-        return scrollPosition >= offsetTop - 150 && scrollPosition < offsetTop - 110 + offsetHeight;
-      });
-      if (sectionInView) {
-        setActiveLink(sectionInView.id);
-      }
-    };
+  const observer = useRef(null);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollPosition = window.scrollY;
+  //     const sectionInView = section.find(({ ref }) => {
+  //       const { offsetTop, offsetHeight } = ref.current;
+  //       return scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight;
+  //     });
+  //     if (sectionInView) {
+  //       setActiveLink(sectionInView.id);
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
+
+  useEffect(() => {
+    observer.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveLink(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.7 }
+    );
+
+    section.forEach((section) => {
+      observer.current.observe(section.ref.current);
+    });
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (observer.current) {
+        observer.current.disconnect();
+      }
     };
   }, [section]);
 
