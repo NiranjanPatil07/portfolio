@@ -71,7 +71,7 @@ const Experience = ({ section }) => {
         <a
           className='inline-flex items-baseline leading-tight text-slate-200 hover:text-sky-400 focus-visible:text-sky-400 font-semibold group/link text-base'
           // href='/NiranjanPatil.pdf'
-          href={"https://drive.google.com/file/d/1aTDcnCnTcKczRLSBXStxN0nnyvnZfiBP/view?usp=sharing"}
+          href={import.meta.env.VITE_RESUME_DRIVE_LINK}
           target='_blank'
           rel='noreferrer noopener'
           aria-label='View Full Resume (opens in a new tab)'
