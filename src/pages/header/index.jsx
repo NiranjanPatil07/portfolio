@@ -37,23 +37,6 @@ const Header = ({ section }) => {
     seed: 0,
   });
   const observer = useRef(null);
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const scrollPosition = window.scrollY;
-  //     const sectionInView = section.find(({ ref }) => {
-  //       const { offsetTop, offsetHeight } = ref.current;
-  //       return scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight;
-  //     });
-  //     if (sectionInView) {
-  //       setActiveLink(sectionInView.id);
-  //     }
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
 
   useEffect(() => {
     observer.current = new IntersectionObserver(
@@ -134,7 +117,7 @@ const Header = ({ section }) => {
             duration: 0.5,
           }}
         >
-          An experienced web developer skilled in React JS and React Native
+          A passionate frontend developer crafting seamless web and mobile experiences with React and React Native.
         </motion.p>
         <nav className='nav hidden lg:block' aria-label='In-page jump links'>
           <motion.ul className='mt-16 w-max' variants={container} initial='hidden' animate={"show"}>
