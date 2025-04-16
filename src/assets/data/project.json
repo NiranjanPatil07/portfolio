@@ -1,6 +1,13 @@
 [
   {
     "display": true,
+    "name": "smallcase",
+    "description": "smallcase is a fintech platform that allows users to invest in intelligently weighted stock portfolios. Contributed to building and optimizing user interfaces for both web and mobile platforms using React, React Native, and Next.js. Worked within a monorepo architecture shared across multiple repositories, ensuring code consistency, modularity, and seamless collaboration across teams.",
+    "link": "https://www.smallcase.com/",
+    "image": "/smallcase.png"
+  },
+  {
+    "display": true,
     "name": "Sountrack",
     "description": "Soundtrack is a personal project built with React and Node.js (Express) that leverages the Spotify Web API to create a rich and user-friendly music listening experience. It's inspired by Spotify but aims to personalize your music journey with unique features and functionalities.",
     "link": "https://soundtrack-listen.vercel.app/",
@@ -14,7 +21,7 @@
     "image": "/delivr.png"
   },
   {
-    "display": true,
+    "display": false,
     "name": "PortQii Connect",
     "description": "Designed and developed multiple products within PorQii Connect, a versatile platform aiding users of marketing platforms like Eloqua, Marketo, and HubSpot. Innovatively addressed asset renaming, version control, and dependency management, enhancing workflow efficiency. Committed to delivering seamless solutions for streamlined marketing operations.",
     "link": "https://apps.portqii.com/edi-hubspot/ux/",
